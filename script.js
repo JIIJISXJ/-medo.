@@ -4,14 +4,12 @@
 
 const WHATSAPP_NUMBER = "201203580875";
 
-// الزيادة المطلوبة
-const EXTRA = 30;
+// مكسب باقات الجواهر
+const DIAMOND_PROFIT = 15;
 
 
 // ========================================
 // باقات الجواهر
-// السعر هنا هو السعر الأساسي
-// الموقع يضيف 30 جنيه تلقائياً
 // ========================================
 
 const diamondPackages = [
@@ -97,33 +95,31 @@ const orderForm =
 
 
 // ========================================
-// حساب السعر
+// حساب سعر الجواهر
 // ========================================
 
-function finalPrice(base) {
+function diamondFinalPrice(base) {
 
-  return base + EXTRA;
+  return base + DIAMOND_PROFIT;
 
 }
 
 
 // ========================================
-// إنشاء كارت الباقة
+// إنشاء كارت الجواهر
 // ========================================
 
-function createCard(item, isMembership = false) {
+function createDiamondCard(item) {
 
   const price =
-    finalPrice(item.base);
+    diamondFinalPrice(item.base);
 
 
   const card =
     document.createElement("article");
 
 
-  card.className =
-    "package" +
-    (isMembership ? " membership" : "");
+  card.className = "package";
 
 
   card.innerHTML = `
@@ -177,13 +173,73 @@ function createCard(item, isMembership = false) {
 
 
 // ========================================
+// إنشاء كارت العضوية
+// ========================================
+
+function createMembershipCard(item) {
+
+  const card =
+    document.createElement("article");
+
+
+  card.className =
+    "package membership";
+
+
+  card.innerHTML = `
+
+    <div class="diamond">
+      ${item.icon}
+    </div>
+
+    <h3>
+      ${item.name}
+    </h3>
+
+    <div class="price">
+      ${item.base} جنيه
+    </div>
+
+    <button type="button">
+      اختيار العضوية
+    </button>
+
+  `;
+
+
+  card
+    .querySelector("button")
+    .addEventListener("click", () => {
+
+      selectedPackage.value =
+        item.name;
+
+      totalPrice.textContent =
+        `${item.base} جنيه`;
+
+
+      document
+        .getElementById("order")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    });
+
+
+  return card;
+
+}
+
+
+// ========================================
 // عرض باقات الجواهر
 // ========================================
 
 diamondPackages.forEach(item => {
 
   diamondGrid.appendChild(
-    createCard(item)
+    createDiamondCard(item)
   );
 
 });
@@ -196,7 +252,7 @@ diamondPackages.forEach(item => {
 memberships.forEach(item => {
 
   membershipGrid.appendChild(
-    createCard(item, true)
+    createMembershipCard(item)
   );
 
 });
@@ -268,7 +324,7 @@ orderForm.addEventListener(
       totalPrice.textContent;
 
 
-    // الرسالة التي ستذهب للواتساب
+    // رسالة واتساب
 
     const message =
 
