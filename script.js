@@ -95,7 +95,7 @@ const orderForm =
 
 
 // ========================================
-// حساب سعر الجواهر
+// حساب السعر النهائي للجواهر
 // ========================================
 
 function diamondFinalPrice(base) {
@@ -107,6 +107,7 @@ function diamondFinalPrice(base) {
 
 // ========================================
 // إنشاء كارت الجواهر
+// بدون السعر المشطوب
 // ========================================
 
 function createDiamondCard(item) {
@@ -119,7 +120,8 @@ function createDiamondCard(item) {
     document.createElement("article");
 
 
-  card.className = "package";
+  card.className =
+    "package";
 
 
   card.innerHTML = `
@@ -131,10 +133,6 @@ function createDiamondCard(item) {
     <h3>
       ${item.name}
     </h3>
-
-    <div class="base">
-      ${item.base} جنيه
-    </div>
 
     <div class="price">
       ${price} جنيه
@@ -153,6 +151,7 @@ function createDiamondCard(item) {
 
       selectedPackage.value =
         item.name;
+
 
       totalPrice.textContent =
         `${price} جنيه`;
@@ -213,6 +212,7 @@ function createMembershipCard(item) {
 
       selectedPackage.value =
         item.name;
+
 
       totalPrice.textContent =
         `${item.base} جنيه`;
@@ -324,7 +324,9 @@ orderForm.addEventListener(
       totalPrice.textContent;
 
 
+    // ========================================
     // رسالة واتساب
+    // ========================================
 
     const message =
 
