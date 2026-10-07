@@ -25,14 +25,21 @@ input {
   font-family: inherit;
 }
 
+
+/* ============================= */
+/* Navbar */
+/* ============================= */
+
 .navbar {
   width: 100%;
   padding: 16px 6%;
   background: #0b1120;
   border-bottom: 1px solid #1d2940;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   position: sticky;
   top: 0;
   z-index: 100;
@@ -47,11 +54,19 @@ input {
 .brand-icon {
   width: 48px;
   height: 48px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 14px;
-  background: linear-gradient(135deg, #ffb000, #ff5b22);
+
+  background: linear-gradient(
+    135deg,
+    #ffb000,
+    #ff5b22
+  );
+
   font-size: 25px;
 }
 
@@ -68,35 +83,49 @@ input {
 .wa-top {
   background: #20d477;
   color: #06120b;
+
   padding: 9px 18px;
   border-radius: 10px;
+
   font-weight: bold;
 }
+
+
+/* ============================= */
+/* Hero */
+/* ============================= */
 
 .hero {
   max-width: 1200px;
   margin: auto;
   padding: 70px 6%;
+
   display: grid;
   grid-template-columns: 1.5fr 1fr;
+
   gap: 40px;
   align-items: center;
 }
 
 .badge {
   display: inline-block;
+
   background: #151d30;
   border: 1px solid #26344f;
+
   padding: 7px 14px;
   border-radius: 30px;
+
   color: #ffbd22;
   font-size: 14px;
+
   margin-bottom: 18px;
 }
 
 .hero h2 {
   font-size: clamp(35px, 5vw, 60px);
   line-height: 1.15;
+
   margin-bottom: 20px;
 }
 
@@ -107,34 +136,51 @@ input {
 .hero p {
   color: #9aa6ba;
   max-width: 650px;
+
   font-size: 17px;
   margin-bottom: 28px;
 }
 
 .main-btn {
   display: inline-block;
+
   padding: 13px 25px;
+
   border-radius: 12px;
-  background: linear-gradient(135deg, #ffb000, #ff5b22);
+
+  background: linear-gradient(
+    135deg,
+    #ffb000,
+    #ff5b22
+  );
+
   color: #ffffff;
   font-weight: bold;
 }
 
 .hero-card {
   min-height: 280px;
+
   border-radius: 25px;
-  background: radial-gradient(
-    circle at top,
-    #202d49,
-    #101729 65%
-  );
+
+  background:
+    radial-gradient(
+      circle at top,
+      #202d49,
+      #101729 65%
+    );
+
   border: 1px solid #26344f;
+
   display: flex;
   flex-direction: column;
+
   justify-content: center;
   align-items: center;
+
   text-align: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
 }
 
 .hero-card .fire {
@@ -155,16 +201,26 @@ input {
   margin-top: 12px;
 }
 
+
+/* ============================= */
+/* Notice */
+/* ============================= */
+
 .notice {
   max-width: 1100px;
   margin: 10px auto 50px;
+
   padding: 20px 25px;
+
   background: #101729;
   border: 1px solid #26344f;
+
   border-radius: 18px;
+
   display: flex;
   gap: 15px;
   align-items: center;
+
   width: 88%;
 }
 
@@ -182,9 +238,15 @@ input {
   font-size: 14px;
 }
 
+
+/* ============================= */
+/* Sections */
+/* ============================= */
+
 .section {
   max-width: 1200px;
   margin: auto;
+
   padding: 25px 6%;
 }
 
@@ -192,6 +254,7 @@ input {
   display: flex;
   align-items: center;
   gap: 13px;
+
   margin-bottom: 25px;
 }
 
@@ -208,37 +271,66 @@ input {
   font-size: 14px;
 }
 
+
+/* ============================= */
+/* Grid */
+/* ============================= */
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  grid-template-columns: repeat(
+    5,
+    minmax(0, 1fr)
+  );
+
   gap: 15px;
 }
 
+
+/* ============================= */
+/* Package */
+/* ============================= */
+
 .package {
   background: #101729;
+
   border: 1px solid #202d46;
+
   border-radius: 18px;
+
   padding: 22px 15px;
+
   text-align: center;
+
   transition: .25s;
+
   overflow: hidden;
 }
 
 .package:hover {
   transform: translateY(-5px);
+
   border-color: #ffb000;
-  box-shadow: 0 12px 35px rgba(255, 176, 0, .10);
+
+  box-shadow:
+    0 12px 35px rgba(255,176,0,.10);
 }
 
 .diamond {
   width: 58px;
   height: 58px;
+
   margin: auto auto 13px;
+
   border-radius: 50%;
+
   background: #19243a;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 30px;
 }
 
@@ -249,20 +341,34 @@ input {
 
 .price {
   color: #ffb000;
+
   font-size: 21px;
   font-weight: bold;
+
   margin-bottom: 15px;
 }
 
 .package button {
   width: 100%;
+
   border: 0;
+
   padding: 10px;
+
   border-radius: 10px;
-  background: linear-gradient(135deg, #ffb000, #ff5b22);
+
+  background: linear-gradient(
+    135deg,
+    #ffb000,
+    #ff5b22
+  );
+
   color: white;
+
   font-weight: bold;
+
   cursor: pointer;
+
   transition: .2s;
 }
 
@@ -274,24 +380,37 @@ input {
   background: #2a2031;
 }
 
+
+/* ============================= */
+/* Order */
+/* ============================= */
+
 .order-section {
   padding: 70px 6%;
 }
 
 .order-box {
   max-width: 650px;
+
   margin: auto;
+
   padding: 30px;
+
   background: #101729;
+
   border: 1px solid #26344f;
+
   border-radius: 22px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
 }
 
 .order-heading {
   display: flex;
   align-items: center;
+
   gap: 13px;
+
   margin-bottom: 25px;
 }
 
@@ -314,19 +433,29 @@ input {
 
 .form-group label {
   display: block;
+
   margin-bottom: 7px;
+
   font-weight: bold;
+
   color: #dbe1ec;
 }
 
 .form-group input {
   width: 100%;
+
   padding: 13px 14px;
+
   border-radius: 11px;
+
   border: 1px solid #2a3853;
+
   background: #0b1120;
+
   color: white;
+
   outline: none;
+
   font-size: 15px;
 }
 
@@ -340,9 +469,13 @@ input {
 
 .summary {
   margin: 22px 0;
+
   padding: 15px;
+
   background: #0b1120;
+
   border-radius: 12px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -359,13 +492,21 @@ input {
 
 .submit-btn {
   width: 100%;
+
   padding: 14px;
+
   border: 0;
+
   border-radius: 12px;
+
   background: #20d477;
+
   color: #04140b;
+
   font-size: 16px;
+
   font-weight: bold;
+
   cursor: pointer;
 }
 
@@ -375,8 +516,11 @@ input {
 
 .payment {
   margin-top: 25px;
+
   padding-top: 20px;
+
   border-top: 1px solid #26344f;
+
   text-align: center;
 }
 
@@ -387,46 +531,70 @@ input {
 
 .payment a {
   color: #20d477;
+
   display: block;
+
   font-size: 20px;
+
   font-weight: bold;
 }
 
 .payment small {
   display: block;
+
   margin-top: 6px;
+
   color: #7f8ba0;
 }
 
+
+/* ============================= */
+/* Footer */
+/* ============================= */
+
 footer {
   margin-top: 30px;
+
   padding: 30px 6%;
+
   background: #050810;
+
   border-top: 1px solid #1b263b;
+
   text-align: center;
 }
 
 .footer-brand {
   font-size: 19px;
   font-weight: bold;
+
   margin-bottom: 8px;
 }
 
 footer p {
   color: #68758a;
+
   font-size: 13px;
+
   margin-bottom: 8px;
 }
 
 footer a {
   color: #20d477;
+
   font-size: 14px;
 }
+
+
+/* ============================= */
+/* Tablet */
+/* ============================= */
 
 @media (max-width: 1000px) {
 
   .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
 
   .hero {
@@ -436,7 +604,13 @@ footer a {
   .hero-card {
     min-height: 220px;
   }
+
 }
+
+
+/* ============================= */
+/* Mobile */
+/* ============================= */
 
 @media (max-width: 650px) {
 
@@ -480,7 +654,9 @@ footer a {
   }
 
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
     gap: 12px;
   }
 
@@ -507,7 +683,13 @@ footer a {
   .order-box {
     padding: 22px 17px;
   }
+
 }
+
+
+/* ============================= */
+/* Small phones */
+/* ============================= */
 
 @media (max-width: 380px) {
 
@@ -518,4 +700,5 @@ footer a {
   .hero h2 {
     font-size: 32px;
   }
+
 }
