@@ -1,175 +1,172 @@
-// ========================================
-// Medo & البرازيلي ستور
-// ========================================
-
 const WHATSAPP_NUMBER = "201203580875";
-
-// مكسب باقات الجواهر
-const DIAMOND_PROFIT = 15;
-
+const PROFIT = 15;
 
 // ========================================
-// باقات الجواهر
+// Free Fire - Diamond Packages
 // ========================================
 
 const diamondPackages = [
-
-  {
-    name: "100 جوهرة",
-    base: 50,
-    icon: "💎"
-  },
-
-  {
-    name: "310 جوهرة",
-    base: 150,
-    icon: "💎"
-  },
-
-  {
-    name: "520 جوهرة",
-    base: 250,
-    icon: "💎"
-  },
-
-  {
-    name: "1060 جوهرة",
-    base: 500,
-    icon: "💎"
-  },
-
-  {
-    name: "2180 جوهرة",
-    base: 1000,
-    icon: "💎"
-  },
-
-  {
-    name: "5600 جوهرة",
-    base: 4300,
-    icon: "💎"
-  }
-
+{ name: "100 جوهرة", base: 50, icon: "💎" },
+{ name: "310 جوهرة", base: 150, icon: "💎" },
+{ name: "520 جوهرة", base: 250, icon: "💎" },
+{ name: "1060 جوهرة", base: 500, icon: "💎" },
+{ name: "2180 جوهرة", base: 1000, icon: "💎" },
+{ name: "5600 جوهرة", base: 4300, icon: "💎" }
 ];
 
+// ========================================
+// PUBG Mobile - UC Packages
+// الأسعار الأساسية الحالية المستخدمة
+// ========================================
+
+const pubgPackages = [
+{ name: "60 UC", base: 57.99, icon: "🎮" },
+{ name: "325 UC", base: 293.99, icon: "🎮" },
+{ name: "660 UC", base: 587.99, icon: "🎮" },
+{ name: "1800 UC", base: 1471.99, icon: "🎮" },
+{ name: "3850 UC", base: 2943.99, icon: "🎮" },
+{ name: "8100 UC", base: 5888.99, icon: "🎮" }
+];
 
 // ========================================
-// العضويات
+// Memberships
 // ========================================
 
 const memberships = [
-
-  {
-    name: "عضوية أسبوعية",
-    base: 100,
-    icon: "👑"
-  },
-
-  {
-    name: "عضوية شهرية",
-    base: 300,
-    icon: "👑"
-  }
-
+{ name: "عضوية أسبوعية", base: 100, icon: "👑" },
+{ name: "عضوية شهرية", base: 300, icon: "👑" }
 ];
-
 
 // ========================================
 // عناصر الصفحة
 // ========================================
 
-const diamondGrid =
-  document.getElementById("diamondGrid");
+const diamondGrid = document.getElementById("diamondGrid");
+const membershipGrid = document.getElementById("membershipGrid");
 
-const membershipGrid =
-  document.getElementById("membershipGrid");
+// لو أضفت في index.html:
+// <div id="pubgGrid" class="grid"></div>
+const pubgGrid = document.getElementById("pubgGrid");
 
-const selectedPackage =
-  document.getElementById("selectedPackage");
-
-const totalPrice =
-  document.getElementById("totalPrice");
-
-const orderForm =
-  document.getElementById("orderForm");
-
+const selectedPackage = document.getElementById("selectedPackage");
+const totalPrice = document.getElementById("totalPrice");
+const orderForm = document.getElementById("orderForm");
 
 // ========================================
-// حساب السعر النهائي للجواهر
+// السعر النهائي
 // ========================================
 
-function diamondFinalPrice(base) {
-
-  return base + DIAMOND_PROFIT;
-
+function finalPrice(base) {
+return base + PROFIT;
 }
 
+// ========================================
+// تنسيق السعر
+// ========================================
+
+function formatPrice(price) {
+if (Number.isInteger(price)) {
+return "${price} جنيه";
+}
+
+return "${price.toFixed(2)} جنيه";
+}
 
 // ========================================
-// إنشاء كارت الجواهر
-// بدون السعر المشطوب
+// إنشاء كارت Free Fire
 // ========================================
 
 function createDiamondCard(item) {
 
-  const price =
-    diamondFinalPrice(item.base);
+const price = finalPrice(item.base);
 
+const card = document.createElement("article");
 
-  const card =
-    document.createElement("article");
+card.className = "package";
 
+card.innerHTML = `
+<div class="diamond">
+${item.icon}
+</div>
 
-  card.className =
-    "package";
+<h3>
+  ${item.name}
+</h3>
 
+<div class="price">
+  ${formatPrice(price)}
+</div>
 
-  card.innerHTML = `
+<button type="button">
+  اختيار الباقة
+</button>
 
-    <div class="diamond">
-      ${item.icon}
-    </div>
+`;
 
-    <h3>
-      ${item.name}
-    </h3>
+card.querySelector("button").addEventListener("click", () => {
 
-    <div class="price">
-      ${price} جنيه
-    </div>
+selectedPackage.value = `Free Fire - ${item.name}`;
 
-    <button type="button">
-      اختيار الباقة
-    </button>
+totalPrice.textContent = formatPrice(price);
 
-  `;
+document
+  .getElementById("order")
+  .scrollIntoView({
+    behavior: "smooth"
+  });
 
+});
 
-  card
-    .querySelector("button")
-    .addEventListener("click", () => {
-
-      selectedPackage.value =
-        item.name;
-
-
-      totalPrice.textContent =
-        `${price} جنيه`;
-
-
-      document
-        .getElementById("order")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-    });
-
-
-  return card;
-
+return card;
 }
 
+// ========================================
+// إنشاء كارت PUBG
+// ========================================
+
+function createPubgCard(item) {
+
+const price = finalPrice(item.base);
+
+const card = document.createElement("article");
+
+card.className = "package";
+
+card.innerHTML = `
+<div class="diamond">
+${item.icon}
+</div>
+
+<h3>
+  ${item.name}
+</h3>
+
+<div class="price">
+  ${formatPrice(price)}
+</div>
+
+<button type="button">
+  اختيار الباقة
+</button>
+
+`;
+
+card.querySelector("button").addEventListener("click", () => {
+
+selectedPackage.value = `PUBG Mobile - ${item.name}`;
+
+totalPrice.textContent = formatPrice(price);
+
+document
+  .getElementById("order")
+  .scrollIntoView({
+    behavior: "smooth"
+  });
+
+});
+
+return card;
+}
 
 // ========================================
 // إنشاء كارت العضوية
@@ -177,162 +174,152 @@ function createDiamondCard(item) {
 
 function createMembershipCard(item) {
 
-  const card =
-    document.createElement("article");
+const card = document.createElement("article");
 
+card.className = "package membership";
 
-  card.className =
-    "package membership";
+card.innerHTML = `
+<div class="diamond">
+${item.icon}
+</div>
 
+<h3>
+  ${item.name}
+</h3>
 
-  card.innerHTML = `
+<div class="price">
+  ${formatPrice(item.base)}
+</div>
 
-    <div class="diamond">
-      ${item.icon}
-    </div>
+<button type="button">
+  اختيار العضوية
+</button>
 
-    <h3>
-      ${item.name}
-    </h3>
+`;
 
-    <div class="price">
-      ${item.base} جنيه
-    </div>
+card.querySelector("button").addEventListener("click", () => {
 
-    <button type="button">
-      اختيار العضوية
-    </button>
+selectedPackage.value = item.name;
 
-  `;
+totalPrice.textContent = formatPrice(item.base);
 
-
-  card
-    .querySelector("button")
-    .addEventListener("click", () => {
-
-      selectedPackage.value =
-        item.name;
-
-
-      totalPrice.textContent =
-        `${item.base} جنيه`;
-
-
-      document
-        .getElementById("order")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-    });
-
-
-  return card;
-
-}
-
-
-// ========================================
-// عرض باقات الجواهر
-// ========================================
-
-diamondPackages.forEach(item => {
-
-  diamondGrid.appendChild(
-    createDiamondCard(item)
-  );
+document
+  .getElementById("order")
+  .scrollIntoView({
+    behavior: "smooth"
+  });
 
 });
 
+return card;
+}
+
+// ========================================
+// عرض Free Fire
+// ========================================
+
+if (diamondGrid) {
+
+diamondPackages.forEach(item => {
+
+diamondGrid.appendChild(
+  createDiamondCard(item)
+);
+
+});
+
+}
+
+// ========================================
+// عرض PUBG
+// ========================================
+
+if (pubgGrid) {
+
+pubgPackages.forEach(item => {
+
+pubgGrid.appendChild(
+  createPubgCard(item)
+);
+
+});
+
+}
 
 // ========================================
 // عرض العضويات
 // ========================================
 
+if (membershipGrid) {
+
 memberships.forEach(item => {
 
-  membershipGrid.appendChild(
-    createMembershipCard(item)
-  );
+membershipGrid.appendChild(
+  createMembershipCard(item)
+);
 
 });
 
+}
 
 // ========================================
 // إرسال الطلب إلى واتساب
 // ========================================
 
-orderForm.addEventListener(
-  "submit",
-  (event) => {
+if (orderForm) {
 
-    event.preventDefault();
+orderForm.addEventListener("submit", (event) => {
 
+event.preventDefault();
 
-    const playerId =
-      document
-        .getElementById("playerId")
-        .value
-        .trim();
+const playerId =
+  document
+    .getElementById("playerId")
+    .value
+    .trim();
 
+const playerName =
+  document
+    .getElementById("playerName")
+    .value
+    .trim();
 
-    const playerName =
-      document
-        .getElementById("playerName")
-        .value
-        .trim();
+const packageName =
+  selectedPackage.value
+    .trim();
 
+if (!packageName) {
 
-    const packageName =
-      selectedPackage.value
-        .trim();
+  alert(
+    "من فضلك اختار الباقة أولاً."
+  );
 
+  document
+    .getElementById("packages")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
 
-    // التأكد من اختيار الباقة
+  return;
+}
 
-    if (!packageName) {
+if (!playerId || !playerName) {
 
-      alert(
-        "من فضلك اختار الباقة أولاً."
-      );
+  alert(
+    "من فضلك اكتب ID اللاعب واسم اللاعب."
+  );
 
-      document
-        .getElementById("packages")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
+  return;
+}
 
-      return;
+const price =
+  totalPrice.textContent;
 
-    }
-
-
-    // التأكد من البيانات
-
-    if (!playerId || !playerName) {
-
-      alert(
-        "من فضلك اكتب ID اللاعب واسم اللاعب."
-      );
-
-      return;
-
-    }
-
-
-    const price =
-      totalPrice.textContent;
-
-
-    // ========================================
-    // رسالة واتساب
-    // ========================================
-
-    const message =
+const message =
 
 `🔥 أهلاً بيك في Medo & البرازيلي ستور ❤️
 
-🎮 طلب شحن Free Fire
+🎮 طلب شحن
 
 👤 اسم اللاعب:
 ${playerName}
@@ -354,15 +341,14 @@ ${price}
 شكراً لاختيارك
 Medo & البرازيلي ستور ❤️`;
 
+const url =
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-    const url =
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-
-    window.open(
-      url,
-      "_blank"
-    );
-
-  }
+window.open(
+  url,
+  "_blank"
 );
+
+});
+
+}
