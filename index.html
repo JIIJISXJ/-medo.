@@ -1,245 +1,137 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#070b16">
-  <title>Medo & البرازيلي ستور | شحن ألعاب</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medo & البرازيلي ستور</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="navbar">
-  <div class="brand">
-    <div class="brand-icon">🔥</div>
-    <div>
-      <h1>Medo & البرازيلي</h1>
-      <span>ستور شحن الألعاب</span>
+<header class="header">
+    <div class="brand">
+        🔥 Medo & البرازيلي
     </div>
-  </div>
 
-  <a class="wa-top"
-     href="https://wa.me/201203580875"
-     target="_blank">
-    واتساب
-  </a>
+    <div class="subtitle">
+        متجر شحن الألعاب
+    </div>
 </header>
+
 
 <main>
 
-<section class="hero">
-  <div class="hero-content">
-    <span class="badge">⚡ شحن سريع • خدمة عبر واتساب</span>
+    <!-- HERO -->
+    <section class="hero">
 
-    <h2>
-      اشحن ألعابك <span>بسهولة</span>
-    </h2>
+        <div class="fire-icon">🔥</div>
 
-    <p>
-      أهلاً بيك في Medo & البرازيلي ستور ❤️
-      اختار اللعبة والباقة، اكتب بيانات اللاعب،
-      وابعت الطلب على واتساب.
-    </p>
+        <h1>أهلاً بيك في متجرنا 🎮</h1>
 
-    <a href="#games" class="main-btn">
-      شوف الباقات ↓
-    </a>
-  </div>
-
-  <div class="hero-card">
-    <div class="fire">🎮</div>
-    <strong>Medo & البرازيلي</strong>
-    <span>Game Store</span>
-    <small>أسعار واضحة • طلب مباشر</small>
-  </div>
-</section>
-
-<section class="notice">
-  <div class="notice-icon">🎁</div>
-
-  <div>
-    <strong>أهلاً بيك ❤️</strong>
-
-    <p>
-      اختار اللعبة والباقة المناسبة ليك،
-      وبعدها اكتب بيانات اللاعب وسيتم تجهيز
-      رسالة الطلب تلقائيًا على واتساب.
-    </p>
-  </div>
-</section>
-
-<section id="games" class="section">
-  <div class="section-title">
-    <span>🎮</span>
-
-    <div>
-      <h2>الألعاب</h2>
-      <p>اختار اللعبة اللي عايز تشحنها</p>
-    </div>
-  </div>
-</section>
-
-<!-- FREE FIRE -->
-<section class="section">
-
-  <div class="section-title">
-    <span>💎</span>
-
-    <div>
-      <h2>Free Fire</h2>
-      <p>باقات الجواهر</p>
-    </div>
-  </div>
-
-  <div id="diamondGrid" class="grid"></div>
-
-</section>
-
-<!-- PUBG -->
-<section class="section">
-
-  <div class="section-title">
-    <span>🎮</span>
-
-    <div>
-      <h2>PUBG Mobile</h2>
-      <p>باقات UC</p>
-    </div>
-  </div>
-
-  <div id="pubgGrid" class="grid"></div>
-
-</section>
-
-<!-- MEMBERSHIPS -->
-<section class="section">
-
-  <div class="section-title">
-    <span>👑</span>
-
-    <div>
-      <h2>العضويات</h2>
-      <p>اختار العضوية المناسبة ليك</p>
-    </div>
-  </div>
-
-  <div id="membershipGrid" class="grid"></div>
-
-</section>
-
-<!-- ORDER -->
-<section id="order" class="order-section">
-
-  <div class="order-box">
-
-    <div class="order-heading">
-      <span>🛒</span>
-
-      <div>
-        <h2>بيانات الطلب</h2>
         <p>
-          املأ البيانات وسيتم فتح واتساب برسالة جاهزة.
+            اشحن ألعابك بسهولة وسرعة
         </p>
-      </div>
-    </div>
 
-    <form id="orderForm">
+        <div class="hero-badge">
+            ⚡ شحن سريع وآمن ⚡
+        </div>
 
-      <div class="form-group">
-        <label for="playerId">
-          ID اللاعب
-        </label>
+    </section>
 
-        <input
-          id="playerId"
-          type="text"
-          inputmode="numeric"
-          placeholder="اكتب ID اللاعب"
-          required
-        >
-      </div>
 
-      <div class="form-group">
-        <label for="playerName">
-          اسم اللاعب
-        </label>
+    <!-- ================= FREE FIRE ================= -->
 
-        <input
-          id="playerName"
-          type="text"
-          placeholder="اكتب اسم اللاعب"
-          required
-        >
-      </div>
+    <section class="game-section free-fire">
 
-      <div class="form-group">
-        <label for="selectedPackage">
-          الباقة المختارة
-        </label>
+        <div class="game-title">
 
-        <input
-          id="selectedPackage"
-          type="text"
-          placeholder="اختار باقة من الأعلى"
-          readonly
-          required
-        >
-      </div>
+            <div class="game-logo">
+                🔥
+            </div>
 
-      <div class="summary">
-        <span>الإجمالي</span>
-        <strong id="totalPrice">0 جنيه</strong>
-      </div>
+            <div>
+                <h2>FREE FIRE</h2>
+                <p>💎 باقات جواهر Free Fire</p>
+            </div>
 
-      <button
-        class="submit-btn"
-        type="submit">
-        📲 إرسال الطلب على واتساب
-      </button>
+        </div>
 
-    </form>
 
-    <div class="payment">
+        <div class="player-box">
 
-      <strong>💳 التحويل / التواصل</strong>
+            <h3>🎮 بيانات اللاعب</h3>
 
-      <a
-        href="https://wa.me/201203580875"
-        target="_blank">
-        +20 12 03580875
-      </a>
+            <input
+                type="text"
+                id="ff-id"
+                placeholder="اكتب ID اللاعب"
+            >
 
-      <small>
-        بعد إرسال الطلب، تواصل على الرقم لتأكيد طريقة الدفع والشحن.
-      </small>
+            <input
+                type="text"
+                id="ff-name"
+                placeholder="اكتب اسم اللاعب"
+            >
 
-    </div>
+        </div>
 
-  </div>
 
-</section>
+        <h3 class="packages-title">
+            💎 باقات الجواهر
+        </h3>
 
-</main>
 
-<footer>
+        <div class="packages-grid">
 
-  <div class="footer-brand">
-    🔥 Medo & البرازيلي ستور
-  </div>
+            <div class="package-card">
 
-  <p>
-    © 2026 البرازيلي & Medo ستور — جميع الحقوق محفوظة
-  </p>
+                <div class="item-icon">💎</div>
 
-  <a
-    href="https://wa.me/201203580875"
-    target="_blank">
-    واتساب: +20 12 03580875
-  </a>
+                <h3>100 جوهرة</h3>
 
-</footer>
+                <div class="price">
+                    64.99 جنيه
+                </div>
 
-<script src="script.js"></script>
+                <button onclick="orderPackage('Free Fire','100 جوهرة','64.99')">
+                    اطلب الآن
+                </button>
 
-</body>
-</html>
+            </div>
+
+
+            <div class="package-card">
+
+                <div class="item-icon">💎</div>
+
+                <h3>310 جوهرة</h3>
+
+                <div class="price">
+                    164.99 جنيه
+                </div>
+
+                <button onclick="orderPackage('Free Fire','310 جوهرة','164.99')">
+                    اطلب الآن
+                </button>
+
+            </div>
+
+
+            <div class="package-card">
+
+                <div class="item-icon">💎</div>
+
+                <h3>520 جوهرة</h3>
+
+                <div class="price">
+                    264.99 جنيه
+                </div>
+
+                <button onclick="order
