@@ -1,103 +1,105 @@
 const WHATSAPP_NUMBER = "201203580875";
 
+// الزيادة مخفية داخل السعر النهائي
 const PROFIT = 15;
 
-/*
-  Free Fire
-  الأسعار الأساسية مأخوذة من الصورة التي أرسلتها
-  والـ 15 جنيه يتم إضافتها تلقائيًا.
-*/
+
+// ========================================
+// FREE FIRE
+// ========================================
 
 const diamondPackages = [
+
   {
     name: "100 جوهرة",
-    base: 49.99,
+    base: 50,
     icon: "💎"
   },
 
   {
     name: "310 جوهرة",
-    base: 149.99,
+    base: 150,
     icon: "💎"
   },
 
   {
     name: "520 جوهرة",
-    base: 249.99,
+    base: 250,
     icon: "💎"
   },
 
   {
     name: "1060 جوهرة",
-    base: 499.99,
+    base: 500,
     icon: "💎"
   },
 
   {
     name: "2180 جوهرة",
-    base: 999.99,
+    base: 1000,
     icon: "💎"
   },
 
   {
     name: "5600 جوهرة",
-    base: 2499.99,
+    base: 4300,
     icon: "💎"
   }
+
 ];
 
 
-/*
-  PUBG Mobile
-  الأسعار الحالية الموجودة في الموقع
-  + 15 جنيه زيادة.
-*/
+// ========================================
+// PUBG MOBILE
+// ========================================
 
 const pubgPackages = [
+
   {
     name: "60 UC",
-    base: 49.99,
+    base: 57.99,
     icon: "🎮"
   },
 
   {
-    name: "300 UC",
-    base: 249.99,
+    name: "325 UC",
+    base: 293.99,
     icon: "🎮"
   },
 
   {
-    name: "600 UC",
-    base: 499.99,
+    name: "660 UC",
+    base: 587.99,
     icon: "🎮"
   },
 
   {
-    name: "1500 UC",
-    base: 1249.99,
+    name: "1800 UC",
+    base: 1471.99,
     icon: "🎮"
   },
 
   {
-    name: "3000 UC",
-    base: 2499.99,
+    name: "3850 UC",
+    base: 2943.99,
     icon: "🎮"
   },
 
   {
-    name: "6000 UC",
-    base: 4999.99,
+    name: "8100 UC",
+    base: 5888.99,
     icon: "🎮"
   }
+
 ];
 
 
-/*
-  العضويات
-  بدون إضافة الـ 15 جنيه.
-*/
+// ========================================
+// العضويات
+// ========================================
 
 const memberships = [
+
   {
     name: "عضوية أسبوعية",
     base: 100,
@@ -109,8 +111,13 @@ const memberships = [
     base: 300,
     icon: "👑"
   }
+
 ];
 
+
+// ========================================
+// عناصر الصفحة
+// ========================================
 
 const diamondGrid =
   document.getElementById("diamondGrid");
@@ -131,20 +138,37 @@ const orderForm =
   document.getElementById("orderForm");
 
 
+// ========================================
+// السعر النهائي
+// ========================================
+
 function finalPrice(base) {
+
   return base + PROFIT;
+
 }
 
+
+// ========================================
+// تنسيق السعر
+// ========================================
 
 function formatPrice(price) {
 
   if (Number.isInteger(price)) {
+
     return `${price} جنيه`;
+
   }
 
   return `${price.toFixed(2)} جنيه`;
+
 }
 
+
+// ========================================
+// اختيار المنتج
+// ========================================
 
 function selectPackage(name, price) {
 
@@ -158,10 +182,13 @@ function selectPackage(name, price) {
     .scrollIntoView({
       behavior: "smooth"
     });
+
 }
 
 
-/* Free Fire */
+// ========================================
+// كارت Free Fire
+// ========================================
 
 function createDiamondCard(item) {
 
@@ -171,9 +198,11 @@ function createDiamondCard(item) {
   const card =
     document.createElement("article");
 
-  card.className = "package";
+  card.className =
+    "package";
 
   card.innerHTML = `
+
     <div class="diamond">
       ${item.icon}
     </div>
@@ -189,6 +218,7 @@ function createDiamondCard(item) {
     <button type="button">
       اختيار الباقة
     </button>
+
   `;
 
   card
@@ -203,10 +233,13 @@ function createDiamondCard(item) {
     });
 
   return card;
+
 }
 
 
-/* PUBG */
+// ========================================
+// كارت PUBG
+// ========================================
 
 function createPubgCard(item) {
 
@@ -216,9 +249,11 @@ function createPubgCard(item) {
   const card =
     document.createElement("article");
 
-  card.className = "package";
+  card.className =
+    "package";
 
   card.innerHTML = `
+
     <div class="diamond">
       ${item.icon}
     </div>
@@ -234,6 +269,7 @@ function createPubgCard(item) {
     <button type="button">
       اختيار الباقة
     </button>
+
   `;
 
   card
@@ -248,10 +284,13 @@ function createPubgCard(item) {
     });
 
   return card;
+
 }
 
 
-/* Membership */
+// ========================================
+// كارت العضوية
+// ========================================
 
 function createMembershipCard(item) {
 
@@ -262,6 +301,7 @@ function createMembershipCard(item) {
     "package membership";
 
   card.innerHTML = `
+
     <div class="diamond">
       ${item.icon}
     </div>
@@ -277,6 +317,7 @@ function createMembershipCard(item) {
     <button type="button">
       اختيار العضوية
     </button>
+
   `;
 
   card
@@ -291,10 +332,13 @@ function createMembershipCard(item) {
     });
 
   return card;
+
 }
 
 
-/* عرض الباقات */
+// ========================================
+// عرض Free Fire
+// ========================================
 
 diamondPackages.forEach(item => {
 
@@ -305,6 +349,10 @@ diamondPackages.forEach(item => {
 });
 
 
+// ========================================
+// عرض PUBG
+// ========================================
+
 pubgPackages.forEach(item => {
 
   pubgGrid.appendChild(
@@ -313,6 +361,10 @@ pubgPackages.forEach(item => {
 
 });
 
+
+// ========================================
+// عرض العضويات
+// ========================================
 
 memberships.forEach(item => {
 
@@ -323,13 +375,16 @@ memberships.forEach(item => {
 });
 
 
-/* إرسال الطلب على واتساب */
+// ========================================
+// إرسال الطلب إلى واتساب
+// ========================================
 
 orderForm.addEventListener(
   "submit",
-  event => {
+  (event) => {
 
     event.preventDefault();
+
 
     const playerId =
       document
@@ -337,15 +392,22 @@ orderForm.addEventListener(
         .value
         .trim();
 
+
     const playerName =
       document
         .getElementById("playerName")
         .value
         .trim();
 
-    const packageName =
-      selectedPackage.value.trim();
 
+    const packageName =
+      selectedPackage.value
+        .trim();
+
+
+    // ==============================
+    // التحقق من الباقة
+    // ==============================
 
     if (!packageName) {
 
@@ -360,8 +422,13 @@ orderForm.addEventListener(
         });
 
       return;
+
     }
 
+
+    // ==============================
+    // التحقق من البيانات
+    // ==============================
 
     if (!playerId || !playerName) {
 
@@ -370,6 +437,7 @@ orderForm.addEventListener(
       );
 
       return;
+
     }
 
 
@@ -377,7 +445,12 @@ orderForm.addEventListener(
       totalPrice.textContent;
 
 
+    // ==============================
+    // رسالة واتساب
+    // ==============================
+
     const message =
+
 `🔥 أهلاً بيك في Medo & البرازيلي ستور ❤️
 
 🎮 طلب شحن ألعاب
