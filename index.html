@@ -1,288 +1,243 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medo & البرازيلي ستور</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b16">
+  <title>Medo & البرازيلي ستور | شحن ألعاب</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="header">
-    <div class="logo">🔥 Medo & البرازيلي</div>
-    <div class="sub-logo">ستور شحن الألعاب</div>
+<header class="navbar">
+  <div class="brand">
+    <div class="brand-icon">🔥</div>
+    <div>
+      <h1>Medo & البرازيلي</h1>
+      <span>ستور شحن الألعاب</span>
+    </div>
+  </div>
+
+  <a class="wa-top"
+     href="https://wa.me/201203580875"
+     target="_blank">
+    واتساب
+  </a>
 </header>
 
 <main>
 
-    <section class="hero">
-        <div class="hero-fire">🔥</div>
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">⚡ شحن سريع • خدمة عبر واتساب</span>
 
-        <h1>أهلاً بيك في متجرنا 🎮</h1>
+    <h2>
+      اشحن ألعابك <span>بسهولة</span>
+    </h2>
 
+    <p>
+      أهلاً بيك في Medo & البرازيلي ستور ❤️
+      اختار اللعبة والباقة، اكتب بيانات اللاعب،
+      وابعت الطلب على واتساب.
+    </p>
+
+    <a href="#games" class="main-btn">
+      شوف الباقات ↓
+    </a>
+  </div>
+
+  <div class="hero-card">
+    <div class="fire">🎮</div>
+    <strong>Medo & البرازيلي</strong>
+    <span>Game Store</span>
+    <small>أسعار واضحة • طلب مباشر</small>
+  </div>
+</section>
+
+<section class="notice">
+  <div class="notice-icon">🎁</div>
+
+  <div>
+    <strong>أهلاً بيك ❤️</strong>
+
+    <p>
+      اختار اللعبة والباقة المناسبة ليك،
+      وبعدها اكتب بيانات اللاعب وسيتم تجهيز
+      رسالة الطلب تلقائيًا على واتساب.
+    </p>
+  </div>
+</section>
+
+<section id="games" class="section">
+  <div class="section-title">
+    <span>🎮</span>
+
+    <div>
+      <h2>الألعاب</h2>
+      <p>اختار اللعبة اللي عايز تشحنها</p>
+    </div>
+  </div>
+</section>
+
+<!-- FREE FIRE -->
+<section class="section">
+
+  <div class="section-title">
+    <span>💎</span>
+
+    <div>
+      <h2>Free Fire</h2>
+      <p>باقات الجواهر</p>
+    </div>
+  </div>
+
+  <div id="diamondGrid" class="grid"></div>
+
+</section>
+
+<!-- PUBG -->
+<section class="section">
+
+  <div class="section-title">
+    <span>🎮</span>
+
+    <div>
+      <h2>PUBG Mobile</h2>
+      <p>باقات UC</p>
+    </div>
+  </div>
+
+  <div id="pubgGrid" class="grid"></div>
+
+</section>
+
+<!-- MEMBERSHIPS -->
+<section class="section">
+
+  <div class="section-title">
+    <span>👑</span>
+
+    <div>
+      <h2>العضويات</h2>
+      <p>اختار العضوية المناسبة ليك</p>
+    </div>
+  </div>
+
+  <div id="membershipGrid" class="grid"></div>
+
+</section>
+
+<!-- ORDER -->
+<section id="order" class="order-section">
+
+  <div class="order-box">
+
+    <div class="order-heading">
+      <span>🛒</span>
+
+      <div>
+        <h2>بيانات الطلب</h2>
         <p>
-            اختار اللعبة واضغط عليها علشان تظهر لك الباقات
+          املأ البيانات وسيتم فتح واتساب برسالة جاهزة.
         </p>
+      </div>
+    </div>
 
-        <span class="hero-badge">⚡ شحن سريع وآمن ⚡</span>
-    </section>
+    <form id="orderForm">
 
+      <div class="form-group">
+        <label for="playerId">
+          ID اللاعب
+        </label>
 
-    <!-- ================= FREE FIRE ================= -->
+        <input
+          id="playerId"
+          type="text"
+          inputmode="numeric"
+          placeholder="اكتب ID اللاعب"
+          required
+        >
+      </div>
 
-    <section class="game-section freefire-section">
+      <div class="form-group">
+        <label for="playerName">
+          اسم اللاعب
+        </label>
 
-        <button class="game-header" onclick="toggleGame('freefire')">
+        <input
+          id="playerName"
+          type="text"
+          placeholder="اكتب اسم اللاعب"
+          required
+        >
+      </div>
 
-            <div class="game-image">
-                <img
-                    src="https://ff.garena.com/en/images/logo.png"
-                    alt="Free Fire"
-                    onerror="this.style.display='none'"
-                >
-                <span class="game-icon">🔥</span>
-            </div>
+      <div class="form-group">
+        <label for="selectedPackage">
+          الباقة المختارة
+        </label>
 
-            <div class="game-info">
-                <h2>FREE FIRE</h2>
-                <p>💎 شحن جواهر Free Fire</p>
-            </div>
+        <input
+          id="selectedPackage"
+          type="text"
+          placeholder="اختار باقة من الأعلى"
+          readonly
+          required
+        >
+      </div>
 
-            <span class="arrow" id="freefire-arrow">⌄</span>
+      <div class="summary">
+        <span>الإجمالي</span>
+        <strong id="totalPrice">0 جنيه</strong>
+      </div>
 
-        </button>
+      <button
+        class="submit-btn"
+        type="submit">
+        📲 إرسال الطلب على واتساب
+      </button>
 
+    </form>
 
-        <div class="packages-wrapper" id="freefire-packages">
+    <div class="payment">
 
-            <div class="player-box">
-                <h3>🎮 بيانات اللاعب</h3>
+      <strong>💳 التحويل / التواصل</strong>
 
-                <input
-                    type="text"
-                    id="ff-id"
-                    placeholder="اكتب ID اللاعب"
-                >
+      <a
+        href="https://wa.me/201203580875"
+        target="_blank">
+        +20 12 03580875
+      </a>
 
-                <input
-                    type="text"
-                    id="ff-name"
-                    placeholder="اكتب اسم اللاعب"
-                >
-            </div>
+      <small>
+        بعد إرسال الطلب، تواصل على الرقم لتأكيد طريقة الدفع والشحن.
+      </small>
 
+    </div>
 
-            <h3 class="packages-title">💎 باقات الجواهر</h3>
+  </div>
 
-            <div class="packages-grid">
-
-                <div class="package-card">
-                    <div class="diamond">💎</div>
-                    <h3>100 جوهرة</h3>
-                    <strong>64.99 جنيه</strong>
-                    <button onclick="orderPackage('Free Fire','100 جوهرة','64.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">💎</div>
-                    <h3>310 جوهرة</h3>
-                    <strong>164.99 جنيه</strong>
-                    <button onclick="orderPackage('Free Fire','310 جوهرة','164.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">💎</div>
-                    <h3>520 جوهرة</h3>
-                    <strong>264.99 جنيه</strong>
-                    <button onclick="orderPackage('Free Fire','520 جوهرة','264.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">💎</div>
-                    <h3>1060 جوهرة</h3>
-                    <strong>514.99 جنيه</strong>
-                    <button onclick="orderPackage('Free Fire','1060 جوهرة','514.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">💎</div>
-                    <h3>2180 جوهرة</h3>
-                    <strong>1014.99 جنيه</strong>
-                    <button onclick="orderPackage('Free Fire','2180 جوهرة','1014.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">💎</div>
-                    <h3>5600 جوهرة</h3>
-                    <strong>2514.99 جنيه</strong>
-                    <button onclick="orderPackage('Free Fire','5600 جوهرة','2514.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ================= PUBG MOBILE ================= -->
-
-    <section class="game-section pubg-section">
-
-        <button class="game-header" onclick="toggleGame('pubg')">
-
-            <div class="game-image pubg-logo">
-                <span>🎯</span>
-            </div>
-
-            <div class="game-info">
-                <h2>PUBG MOBILE</h2>
-                <p>🪙 شحن UC PUBG Mobile</p>
-            </div>
-
-            <span class="arrow" id="pubg-arrow">⌄</span>
-
-        </button>
-
-
-        <div class="packages-wrapper" id="pubg-packages">
-
-            <div class="player-box">
-                <h3>🎮 بيانات اللاعب</h3>
-
-                <input
-                    type="text"
-                    id="pubg-id"
-                    placeholder="اكتب ID اللاعب"
-                >
-
-                <input
-                    type="text"
-                    id="pubg-name"
-                    placeholder="اكتب اسم اللاعب"
-                >
-            </div>
-
-
-            <h3 class="packages-title">🪙 باقات UC</h3>
-
-            <div class="packages-grid">
-
-                <div class="package-card">
-                    <div class="diamond">🪙</div>
-                    <h3>60 UC</h3>
-                    <strong>64.99 جنيه</strong>
-                    <button onclick="orderPackage('PUBG Mobile','60 UC','64.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">🪙</div>
-                    <h3>325 UC</h3>
-                    <strong>264.99 جنيه</strong>
-                    <button onclick="orderPackage('PUBG Mobile','325 UC','264.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">🪙</div>
-                    <h3>660 UC</h3>
-                    <strong>514.99 جنيه</strong>
-                    <button onclick="orderPackage('PUBG Mobile','660 UC','514.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">🪙</div>
-                    <h3>1800 UC</h3>
-                    <strong>1264.99 جنيه</strong>
-                    <button onclick="orderPackage('PUBG Mobile','1800 UC','1264.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">🪙</div>
-                    <h3>3850 UC</h3>
-                    <strong>2514.99 جنيه</strong>
-                    <button onclick="orderPackage('PUBG Mobile','3850 UC','2514.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-                <div class="package-card">
-                    <div class="diamond">🪙</div>
-                    <h3>8100 UC</h3>
-                    <strong>5014.99 جنيه</strong>
-                    <button onclick="orderPackage('PUBG Mobile','8100 UC','5014.99')">
-                        اطلب الآن
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ================= MEMBERSHIPS ================= -->
-
-    <section class="memberships">
-
-        <h2>👑 العضويات</h2>
-
-        <div class="packages-grid">
-
-            <div class="package-card membership-card">
-                <div class="diamond">👑</div>
-                <h3>عضوية أسبوعية</h3>
-                <strong>100 جنيه</strong>
-
-                <button onclick="orderPackage('Free Fire','عضوية أسبوعية','100')">
-                    اطلب الآن
-                </button>
-            </div>
-
-            <div class="package-card membership-card">
-                <div class="diamond">👑</div>
-                <h3>عضوية شهرية</h3>
-                <strong>300 جنيه</strong>
-
-                <button onclick="orderPackage('Free Fire','عضوية شهرية','300')">
-                    اطلب الآن
-                </button>
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
 </main>
 
-
 <footer>
-    <p>📱 واتساب: 01203580875</p>
-    <p>© 2026 البرازيلي & Medo ستور — جميع الحقوق محفوظة</p>
-</footer>
 
+  <div class="footer-brand">
+    🔥 Medo & البرازيلي ستور
+  </div>
+
+  <p>
+    © 2026 البرازيلي & Medo ستور — جميع الحقوق محفوظة
+  </p>
+
+  <a
+    href="https://wa.me/201203580875"
+    target="_blank">
+    واتساب: +20 12 03580875
+  </a>
+
+</footer>
 
 <script src="script.js"></script>
 
